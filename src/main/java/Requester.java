@@ -15,7 +15,7 @@ public class Requester extends User {
 
     public Boolean issueRequest() {
         Matcher matcher = Matcher.getMatcher();
-        return matcher.receiveRequest(req);
+        return matcher.receiveRequest(req, this);
     }
 
     public Boolean receiveRequestConfirmation(Request req) {

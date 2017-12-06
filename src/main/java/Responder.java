@@ -23,9 +23,10 @@ public class Responder extends User {
         return this.reqs;
     }
 
-    public Boolean acceptRequest(Request req) {
+    public Boolean acceptRequest(Requester user, Request req) {
         req.state = 1;
-        return true;
+        Matcher matcher = Matcher.getMatcher();
+        return matcher.receiveRequestConfirmation(user, this);
     }
 
     public Boolean declineRequest(Request req) {

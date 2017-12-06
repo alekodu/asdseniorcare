@@ -12,25 +12,25 @@ public class Matcher {
         return matcher;
     }
 
-    public Boolean receiveRequest(Request req) {
-        sendRequest(findUserMatch(req));
-        return true;
+    public Boolean receiveRequest(Request req, Requester user) {
+        return sendRequest(findUserMatch(req), user, req);
     }
 
-    public User findUserMatch(Request req) {
+    public Responder findUserMatch(Request req) {
         Learning learning = Learning.getLearning();
         return learning.match(req);
     }
 
-    public Boolean sendRequest(User user) {
-        return true;
+    public Boolean sendRequest(Responder respUser, Requester reqUser, Request req) {
+        // Responder positive reply mock-up
+        return respUser.acceptRequest(reqUser, req);
     }
 
-    public Boolean receiveRequestConfirmation(User user) {
-        return true;
+    public Boolean receiveRequestConfirmation(Requester reqUser, Responder respUser) {
+        return sendRequestConfirmation(reqUser);
     }
 
-    public Boolean sendRequestConfirmation(User user) {
+    public Boolean sendRequestConfirmation(Requester user) {
         return true;
     }
 

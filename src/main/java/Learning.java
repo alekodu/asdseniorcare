@@ -10,7 +10,7 @@ public class Learning {
         return learning;
     }
 
-    public User match(Request req) {
+    public Responder match(Request req) {
         // Mock-up match
         UserDB userDB = new UserDB();
         Responder user = new Responder(userDB);
