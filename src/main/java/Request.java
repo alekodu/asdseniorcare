@@ -11,13 +11,13 @@ public class Request {
     public Integer payType;
 
     public Request(HashMap<String, String> reqDetails) {
-        this.duration = reqDetails.get("duration");
-        this.urgency = reqDetails.get("urgency");
-        this.timeConstraint = reqDetails.get("timeConstraint");
-        this.state = reqDetails.get("state");
+        this.duration = Integer.parseInt(reqDetails.get("duration"));
+        this.urgency = Boolean.parseBoolean(reqDetails.get("urgency"));
+        this.timeConstraint = Integer.parseInt(reqDetails.get("timeConstraint"));
+        this.state = Integer.parseInt(reqDetails.get("state"));
         this.description = reqDetails.get("description");
-        this.price = reqDetails.get("price");
-        this.payType = reqDetails.get("payType");
+        this.price = Float.parseFloat(reqDetails.get("price"));
+        this.payType = Integer.parseInt(reqDetails.get("payType"));
     }
 
     public Integer getRequestState() {
@@ -26,6 +26,7 @@ public class Request {
 
     public Boolean setRequestState(Integer state) {
         this.state = state;
+        return true;
     }
 
     public Boolean makePayment() {

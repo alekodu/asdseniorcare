@@ -16,9 +16,10 @@ public class Login {
         user.put("table", "user");
         user.put("email", this.email);
         user.put("password", this.password);
+
         DBAdaptor dbAdaptor = new DBAdaptor(null);
 
-        return dbAdaptor.retrieve((HashMap<String, String>) user);
+        return (Integer) dbAdaptor.retrieve((HashMap<String, String>) user);
     }
 
     public Boolean signOut(){

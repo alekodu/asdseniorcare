@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.lang.*;
 
-public abstract class User{
+public abstract class User {
     public String name;
     public String email;
     public String password;

@@ -22,14 +22,25 @@ public class DBAdaptor {
 
             // Mock-up user
             Map<String, String> userDB = new HashMap<String, String>();
-            user.put("email", "group11asd@gmail.com");
-            user.put("password", "123456");
-            user.put("type", "requester");
+            userDB.put("name", "Group Eleven");
+            userDB.put("email", "group11asd@gmail.com");
+            userDB.put("password", "123456");
+            userDB.put("phoneNumber", "0000000");
+            userDB.put("homeAddress", "Polacksbacken");
+            userDB.put("rating", "10");
+            userDB.put("state", "1");
+            userDB.put("lat", "124.88");
+            userDB.put("lon", "88.60");
+            userDB.put("type", "responder");
 
-            if (user.get("type").equals("requester"))
-                User user = new Requester();
+            User user;
+            if (userDB.get("type").equals("responder"))
+                user = new Responder((HashMap<String, String>) userDB);
+            else //(userDB.get("type").equals("requester"))
+                user = new Responder((HashMap<String, String>) userDB);
 
-            if (user.get("email").equals(param.get("email")) && user.get("password").equals(param.get("password"))) {
+            if (user.getUserDetails().get("email").equals(param.get("email")) &&
+                    user.getUserDetails().get("password").equals(param.get("password"))) {
                 return 1;
             } else {
                 return 0;
