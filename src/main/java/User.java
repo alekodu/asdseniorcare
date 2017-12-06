@@ -4,14 +4,14 @@ import java.util.List;
 import java.lang.*;
 
 public abstract class User {
-    public Integer userId;
-    public String name;
-    public String email;
-    public String password;
-    public String phoneNumber;
-    public String homeAddress;
-    public Integer rating;
-    public Integer state;
+    private Integer userId;
+    private String name;
+    private String email;
+    private String password;
+    private String phoneNumber;
+    private String homeAddress;
+    private Integer rating;
+    private Integer state;
 
     public User(HashMap<String, String> userDetails) {
         this.userId = Integer.parseInt(userDetails.get("userId"));

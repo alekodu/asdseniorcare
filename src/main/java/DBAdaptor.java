@@ -42,7 +42,7 @@ public class DBAdaptor {
 
             if (user.getUserDetails().get("email").equals(param.get("email")) &&
                     user.getUserDetails().get("password").equals(param.get("password"))) {
-                return user;
+                return 1;
             } else {
                 return 0;
             }
