@@ -20,10 +20,14 @@ public class DBAdaptor {
     public Object retrieve(HashMap<String, String> param){
         if(param.get("table") == "user") {
 
-            // Mocked-up user
-            Map<String, String> user = new HashMap<String, String>();
+            // Mock-up user
+            Map<String, String> userDB = new HashMap<String, String>();
             user.put("email", "group11asd@gmail.com");
             user.put("password", "123456");
+            user.put("type", "requester");
+
+            if (user.get("type").equals("requester"))
+                User user = new Requester();
 
             if (user.get("email").equals(param.get("email")) && user.get("password").equals(param.get("password"))) {
                 return 1;
