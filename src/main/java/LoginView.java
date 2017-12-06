@@ -16,7 +16,7 @@ public class LoginView {
 
         Login login = new Login(email, password);
 
-        if (login.signIn() == 1)
+        if (login.signIn() instanceof User )
             System.out.println("Access Granted! Welcome to the social care system!");
         else
             System.out.println("Invalid email and/or password!");

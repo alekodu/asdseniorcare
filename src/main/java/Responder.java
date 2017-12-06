@@ -1,15 +1,13 @@
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class Responder extends User {
     GPSCoordinates currentLocation = new GPSCoordinates();
     List<Request> reqs = new ArrayList<Request>();
 
-    public Responder(HashMap<String, String> userDetails) {
+    public Responder(UserDB userDetails) {
         super(userDetails);
-        this.currentLocation.setCurrentLocation(Float.parseFloat(userDetails.get("lat")),
-                Float.parseFloat(userDetails.get("lon")));
+        this.currentLocation.setCurrentLocation(userDetails.lat, userDetails.lon);
     }
 
     public GPSCoordinates getCurrentLocation() {

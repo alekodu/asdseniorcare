@@ -11,7 +11,7 @@ public class Login {
         this.password = password;
     }
 
-    public Integer signIn(){
+    public Object signIn(){
         Map<String, String> user = new HashMap<String, String>();
         user.put("table", "user");
         user.put("email", this.email);
@@ -19,7 +19,7 @@ public class Login {
 
         DBAdaptor dbAdaptor = new DBAdaptor(null);
 
-        return (Integer) dbAdaptor.retrieve((HashMap<String, String>) user);
+        return dbAdaptor.retrieve((HashMap<String, String>) user);
     }
 
     public Boolean signOut(){

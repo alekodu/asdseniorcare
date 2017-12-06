@@ -7,18 +7,8 @@ public class RequesterView {
     public static void main(String[] args) {
 
         // Mock-up user
-        Map<String, String> userDB = new HashMap<String, String>();
-        userDB.put("userId", "11");
-        userDB.put("name", "Group Eleven");
-        userDB.put("email", "group11asd@gmail.com");
-        userDB.put("password", "123456");
-        userDB.put("phoneNumber", "0000000");
-        userDB.put("homeAddress", "Polacksbacken");
-        userDB.put("rating", "10");
-        userDB.put("state", "1");
-        userDB.put("lat", "124.88");
-        userDB.put("lon", "88.60");
-        userDB.put("type", "requester");
+        UserDB userDB = new UserDB();
+        userDB.type = "requester";
 
         final Map<String, String> reqDetails = new HashMap<String, String>();
 
@@ -47,14 +37,14 @@ public class RequesterView {
         System.out.println("Enter payment type: ");
         reqDetails.put("payType", input6.next());
 
-        reqDetails.put("reqId", userDB.get("userId"));
+        reqDetails.put("reqId", Integer.toString(userDB.userId));
         reqDetails.put("respId", "-1");
         reqDetails.put("state", "0");
 
-        if (userDB.get("type").equals("responder")) {
-            Responder user = new Responder((HashMap<String, String>) userDB);
+        if (userDB.type.equals("responder")) {
+            Responder user = new Responder(userDB);
         } else { //(userDB.get("type").equals("requester"))
-            Requester user = new Requester((HashMap<String, String>) userDB);
+            Requester user = new Requester(userDB);
             user.createRequest((HashMap<String, String>) reqDetails);
 
             if (user.issueRequest())

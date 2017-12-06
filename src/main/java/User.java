@@ -13,15 +13,15 @@ public abstract class User {
     private Integer rating;
     private Integer state;
 
-    public User(HashMap<String, String> userDetails) {
-        this.userId = Integer.parseInt(userDetails.get("userId"));
-        this.name = userDetails.get("name");
-        this.email = userDetails.get("email");
-        this.password = userDetails.get("password");
-        this.phoneNumber = userDetails.get("phoneNumber");
-        this.homeAddress = userDetails.get("homeAddress");
-        this.rating = Integer.parseInt(userDetails.get("rating"));
-        this.state = Integer.parseInt(userDetails.get("state"));
+    public User(UserDB userDetails) {
+        this.userId = userDetails.userId;
+        this.name = userDetails.name;
+        this.email = userDetails.email;
+        this.password = userDetails.password;
+        this.phoneNumber = userDetails.phoneNumber;
+        this.homeAddress = userDetails.homeAddress;
+        this.rating = userDetails.rating;
+        this.state = userDetails.state;
     }
 
     public Map<String, String> getUserDetails() {

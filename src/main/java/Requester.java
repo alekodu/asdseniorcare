@@ -4,7 +4,7 @@ public class Requester extends User {
 
     public Request req;
 
-    public Requester(HashMap<String, String> userDetails) {
+    public Requester(UserDB userDetails) {
         super(userDetails);
     }
 
@@ -14,7 +14,8 @@ public class Requester extends User {
     }
 
     public Boolean issueRequest() {
-        return true;
+        Matcher matcher = Matcher.getMatcher();
+        return matcher.receiveRequest(req);
     }
 
     public Boolean receiveRequestConfirmation(Request req) {
