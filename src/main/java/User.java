@@ -4,6 +4,7 @@ import java.util.List;
 import java.lang.*;
 
 public abstract class User {
+    public Integer userId;
     public String name;
     public String email;
     public String password;
@@ -13,6 +14,7 @@ public abstract class User {
     public Integer state;
 
     public User(HashMap<String, String> userDetails) {
+        this.userId = Integer.parseInt(userDetails.get("userId"));
         this.name = userDetails.get("name");
         this.email = userDetails.get("email");
         this.password = userDetails.get("password");
@@ -25,6 +27,7 @@ public abstract class User {
     public Map<String, String> getUserDetails() {
         Map<String, String> userDetails = new HashMap<String, String>();
 
+        userDetails.put("userId", Integer.toString(this.userId));
         userDetails.put("name", this.name);
         userDetails.put("email", this.email);
         userDetails.put("password", this.password);

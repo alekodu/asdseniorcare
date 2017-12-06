@@ -2,7 +2,7 @@ import java.util.HashMap;
 
 public class Request {
 
-    public Integer duration;
+    public Integer duration, reqId, respId;
     public Boolean urgency;
     public Integer timeConstraint;
     public Integer state;
@@ -11,6 +11,8 @@ public class Request {
     public Integer payType;
 
     public Request(HashMap<String, String> reqDetails) {
+        this.reqId = Integer.parseInt(reqDetails.get("reqId"));
+        this.respId = Integer.parseInt(reqDetails.get("respId"));
         this.duration = Integer.parseInt(reqDetails.get("duration"));
         this.urgency = Boolean.parseBoolean(reqDetails.get("urgency"));
         this.timeConstraint = Integer.parseInt(reqDetails.get("timeConstraint"));

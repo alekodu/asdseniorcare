@@ -22,6 +22,7 @@ public class DBAdaptor {
 
             // Mock-up user
             Map<String, String> userDB = new HashMap<String, String>();
+            userDB.put("userId", "11");
             userDB.put("name", "Group Eleven");
             userDB.put("email", "group11asd@gmail.com");
             userDB.put("password", "123456");
@@ -37,11 +38,11 @@ public class DBAdaptor {
             if (userDB.get("type").equals("responder"))
                 user = new Responder((HashMap<String, String>) userDB);
             else //(userDB.get("type").equals("requester"))
-                user = new Responder((HashMap<String, String>) userDB);
+                user = new Requester((HashMap<String, String>) userDB);
 
             if (user.getUserDetails().get("email").equals(param.get("email")) &&
                     user.getUserDetails().get("password").equals(param.get("password"))) {
-                return 1;
+                return user;
             } else {
                 return 0;
             }
